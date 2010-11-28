@@ -1,0 +1,8 @@
+one:
+  name: Webmil conf
+  description: Very interesting conference
+  city: Lviv
+  place: Konovaltsya 327
+  type: conference
+  price: free
+  
