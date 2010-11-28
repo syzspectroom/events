@@ -3,8 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0'
 
 gem "mongoid", "2.0.0.beta.20"
-gem "bson_ext", "1.0.5"
-gem "bson", "1.0.5"
+gem "bson_ext", "1.0.9"
+gem "bson", "1.0.9"
 
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git' #authirization
 

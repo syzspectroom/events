@@ -47,8 +47,8 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     bcrypt-ruby (2.1.2)
-    bson (1.0.5)
-    bson_ext (1.0.5)
+    bson (1.0.9)
+    bson_ext (1.0.9)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -102,8 +102,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bson (= 1.0.5)
-  bson_ext (= 1.0.5)
+  bson (= 1.0.9)
+  bson_ext (= 1.0.9)
   carrierwave!
   devise!
   mini_magick
