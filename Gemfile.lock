@@ -6,6 +6,12 @@ GIT
       activesupport (~> 3.0)
 
 GIT
+  remote: git://github.com/nex3/haml.git
+  revision: ec5fc0514f3807e1a3514461e417ce1c08abd055
+  specs:
+    haml (3.1.0.alpha.0)
+
+GIT
   remote: git://github.com/plataformatec/devise.git
   revision: ec5bfe9119d0e1e633629793b0de1f58f89622dc
   specs:
@@ -52,6 +58,7 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    hpricot (0.8.3)
     i18n (0.4.1)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
@@ -83,12 +90,16 @@ GEM
       activesupport (= 3.0.0)
       bundler (~> 1.0.0)
       railties (= 3.0.0)
+    rails3-generators (0.14.0)
     railties (3.0.0)
       actionpack (= 3.0.0)
       activesupport (= 3.0.0)
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
+    ruby_parser (2.0.5)
+      sexp_processor (~> 3.0)
+    sexp_processor (3.0.5)
     subexec (0.0.4)
     thor (0.14.1)
     treetop (1.4.8)
@@ -106,7 +117,11 @@ DEPENDENCIES
   bson_ext (= 1.0.9)
   carrierwave!
   devise!
+  haml!
+  hpricot
   mini_magick
   mongoid (= 2.0.0.beta.20)
   nifty-generators
   rails (= 3.0.0)
+  rails3-generators
+  ruby_parser
