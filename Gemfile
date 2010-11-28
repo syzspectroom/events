@@ -1,11 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
-
+gem 'hpricot' #convert views to haml
+gem 'ruby_parser'
 gem "mongoid", "2.0.0.beta.20"
 gem "bson_ext", "1.0.9"
 gem "bson", "1.0.9"
-
+gem "rails3-generators"
+gem "haml", :git =>'git://github.com/nex3/haml.git'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git' #authirization
 
 gem 'nifty-generators' #Just to create a basic layout
