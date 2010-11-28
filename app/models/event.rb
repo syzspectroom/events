@@ -16,4 +16,20 @@ class Event
   field :regurl
   field :speakers
   field :schedule
+  
+  mount_uploader :logo, LogoUploader
+
+  field :name
+  key :name
+  
+  attr_accessible :name, :date, :description, :author, :logo, :city, :place, :type, :price, :website, :twitter, :hashtag, :regurl, :speakers, :schedule
+  referenced_in :user, :inverse_of => :user
+  
+  before_validation :set_slug
+
+  def set_slug
+    self.slug = rand(36**8).to_s(36) if self.slug.nil?
+  end
+
+
 end
