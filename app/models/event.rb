@@ -4,7 +4,7 @@ class Event
   field :name 
   field :date
   field :description
-  field :author
+#  field :author
   field :city #event city
   field :place #event address
   field :type 
@@ -23,7 +23,7 @@ class Event
   key :name
   
   attr_accessible :name, :date, :description, :author, :logo, :city, :place, :type, :price, :website, :twitter, :hashtag, :regurl, :speakers, :schedule
-  referenced_in :user, :inverse_of => :user
+  referenced_in :user, :inverse_of => :author
   
   before_validation :set_slug
 
