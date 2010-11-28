@@ -1,0 +1,58 @@
+about=List versions of all Rails frameworks and the environment
+default=
+doc=
+doc/api=
+doc/api/index.html=
+doc/app=
+doc/app/index.html=
+doc\:app=Generate docs for the app -- also availble doc:rails, doc:guides, doc:plugins (options: TEMPLATE=/rdoc-template.rb, TITLE="Custom Title")
+doc\:clobber=
+doc\:clobber_app=
+doc\:clobber_plugins=
+doc\:clobber_rails=
+doc\:guides=
+doc\:plugins=
+doc\:rails=
+doc\:reapp=
+doc\:rerails=
+environment=
+log\:clear=Truncates all *.log files in log/ to zero bytes
+middleware=Prints out your Rack middleware stack
+notes=Enumerate all annotations (use notes:optimize, :fixme, :todo for focus)
+notes\:custom=Enumerate a custom annotation, specify with ANNOTATION=CUSTOM
+notes\:fixme=
+notes\:optimize=
+notes\:todo=
+rails\:freeze\:edge=
+rails\:freeze\:gems=
+rails\:template=Applies the template supplied by LOCATION=/path/to/template
+rails\:templates\:copy=
+rails\:unfreeze=
+rails\:update=Update both configs and public/javascripts from Rails (or use just update:javascripts or update:configs)
+rails\:update\:application_controller=
+rails\:update\:configs=
+rails\:update\:javascripts=
+rails\:update\:scripts=
+rails_env=
+routes=Print out all defined routes in match order, with names. Target specific controller with CONTROLLER=x.
+secret=Generate a crytographically secure secret key (this is typically used to generate a secret for cookie sessions).
+stats=Report code statistics (KLOCs, etc) from the application
+test=Runs test:units, test:functionals, test:integration together (also available: test:benchmark, test:profile, test:plugins)
+test\:benchmark=
+test\:functionals=
+test\:integration=
+test\:plugins=
+test\:prepare=
+test\:profile=
+test\:recent=Run tests for {:recent=>"test:prepare"} / Test recent changes
+test\:uncommitted=Run tests for {:uncommitted=>"test:prepare"} / Test changes since last checkin (only Subversion and Git)
+test\:units=
+time\:zones\:all=Displays all time zones, also available: time:zones:us, time:zones:local -- filter with OFFSET parameter, e.g., OFFSET=-6
+time\:zones\:local=
+time\:zones\:us=
+tmp\:cache\:clear=
+tmp\:clear=Clear session, cache, and socket files from tmp/ (narrow w/ tmp:sessions:clear, tmp:cache:clear, tmp:sockets:clear)
+tmp\:create=Creates tmp directories for sessions, cache, sockets, and pids
+tmp\:pids\:clear=
+tmp\:sessions\:clear=
+tmp\:sockets\:clear=
