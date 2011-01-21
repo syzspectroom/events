@@ -1,8 +1,45 @@
 !!!
-%html
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title Hello world!!!
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    = stylesheet_link_tag 'style.css', :media => 'screen, projection'
+
+    
+    %title Eventra
+      
   %body
-    %header
-    %body=yield      
-    %footer
+    #header
+      #social
+        = link_to image_tag("email.png"), "#"
+        = link_to image_tag("facebook.png"), "#"
+        = link_to image_tag("twitter.png"), "#"
+        = link_to image_tag("linkedin.png"), "#"
+
+
+    %ul.dropdown
+      %li
+        %a{:href => "#"} Главная
+      %li
+        %a{:href => "#"} События
+      %li
+        %a{:href => "#"} Новое событие
+
+    
+    #intro
+      =yield
+
+    #box_left
+      %h3 About
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus dolor hendrerit lacus egestas sollicitudin. Nullam pharetra commodo sem, sit amet mattis metus vestibulum at. Suspendisse in tellus metus. Ut lobortis gravida magna, et mollis nisl luctus et. Ut quis neque eros
+      = link_to image_tag("more.png",:class=>"more"),"#"
+        
+    #box_right
+      %h3 Recent
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus dolor hendrerit lacus egestas sollicitudin. Nullam pharetra commodo sem, sit amet mattis metus vestibulum at. Suspendisse in tellus metus. Ut lobortis gravida magna, et mollis nisl luctus et. Ut quis neque eros
+      = link_to image_tag("more.png",:class=>"more"),"#"
+    #box_middle
+      %h3 Services
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus dolor hendrerit lacus egestas sollicitudin. Nullam pharetra commodo sem, sit amet mattis metus vestibulum at. Suspendisse in tellus metus. Ut lobortis gravida magna, et mollis nisl luctus et. Ut quis neque eros
+      = link_to image_tag("more.png",:class=>"more"),"#"
+    #footer
+    

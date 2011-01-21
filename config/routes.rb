@@ -2,9 +2,7 @@ Podii::Application.routes.draw do
   
   devise_for :users
   
-  root :to => 'main#index'
-  
-  match 'main/new' => 'main#new'
+  root :to => 'events#index'
   resources :events
   
   # The priority is based upon order of creation:

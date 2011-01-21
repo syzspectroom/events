@@ -43,6 +43,7 @@ module Podii
     
     config.generators do |g|
       g.template_engine :haml
+      g.orm :mongoid
     end
 
     # Configure sensitive parameters which will be filtered from the log file.

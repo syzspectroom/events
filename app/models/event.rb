@@ -16,7 +16,7 @@ class Event
   field :regurl
   field :speakers
   field :schedule
-  
+  field :slug
   mount_uploader :logo, LogoUploader
 
   field :name
