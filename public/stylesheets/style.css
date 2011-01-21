@@ -62,7 +62,7 @@ html {background: #f7f7f7; font-size: 100%}
 
 body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times, serif; font-size: .875em; color: #666}
 
-#header {height: 160px; background: url(../images/logo.png) no-repeat}
+#header {height: 100px; background: url(../images/logo.png) no-repeat}
 
 #social {width: 133px; height: 26px; float: right; margin-top: 8px}
 
