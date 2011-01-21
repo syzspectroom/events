@@ -1,11 +1,33 @@
 !!!
-%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+%html
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    = stylesheet_link_tag 'style.css', :media => 'screen, projection'
-
-    
+    = stylesheet_link_tag 'style.css', :media => 'screen, projection' 
+    = javascript_include_tag 'jquery'
     %title Eventra
+    :javascript
+      $(function(){
+      
+         $("ul.dropdown li").hover(function(){
+      
+              $(this).addClass("hover");
+      
+              $('ul:first',this).css('visibility', 'visible');
+      
+          
+      
+          }, function(){
+      
+         $(this).removeClass("hover");
+      
+         $('ul:first',this).css('visibility', 'hidden');
+      
+      });
+      
+      $("ul.dropdown li ul li:has(ul)").find("a:first").append(" » ");
+      
+      });
+
       
   %body
     #header
@@ -18,27 +40,35 @@
 
     %ul.dropdown
       %li
-        %a{:href => "#"} Главная
+        = link_to 'Главная', root_path
       %li
         %a{:href => "#"} События
+        %ul.sub_menu
+          %li
+            = link_to 'Конференции', root_path
+          %li
+            = link_to 'Встречи стартаперов', root_path
+          %li
+            = link_to 'Форумы', root_path
+
       %li
-        %a{:href => "#"} Новое событие
+        = link_to 'Новое событие', new_event_path
 
     
-    #intro
+    #shortevents
       =yield
 
     #box_left
-      %h3 About
+      %h3 Блок 1
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus dolor hendrerit lacus egestas sollicitudin. Nullam pharetra commodo sem, sit amet mattis metus vestibulum at. Suspendisse in tellus metus. Ut lobortis gravida magna, et mollis nisl luctus et. Ut quis neque eros
       = link_to image_tag("more.png",:class=>"more"),"#"
         
     #box_right
-      %h3 Recent
+      %h3 Блок 3
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus dolor hendrerit lacus egestas sollicitudin. Nullam pharetra commodo sem, sit amet mattis metus vestibulum at. Suspendisse in tellus metus. Ut lobortis gravida magna, et mollis nisl luctus et. Ut quis neque eros
       = link_to image_tag("more.png",:class=>"more"),"#"
     #box_middle
-      %h3 Services
+      %h3 Блок 2
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus dolor hendrerit lacus egestas sollicitudin. Nullam pharetra commodo sem, sit amet mattis metus vestibulum at. Suspendisse in tellus metus. Ut lobortis gravida magna, et mollis nisl luctus et. Ut quis neque eros
       = link_to image_tag("more.png",:class=>"more"),"#"
     #footer

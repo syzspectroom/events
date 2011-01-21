@@ -116,7 +116,7 @@ body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times
 
 /* end sidebar menu */
 
-#intro {
+#shortevents {
 	border: 1px solid #FFF; 
 	clear: both;
 	padding: 20px;
@@ -127,9 +127,7 @@ body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times
 	background: #eaeaea
 }
 
-#intro span {font-weight: 700}
 
-#intro p {padding: 0}
 
 #box_left {width: 300px; float: left; margin-bottom: 44px; text-align: justify}
 #box_right {width: 300px; float: right; margin-bottom: 44px; text-align: justify}

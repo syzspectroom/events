@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.all
+    @events = Event.all.order_by(:date.desc).limit(10)
 
     respond_to do |format|
       format.html # index.html.erb
