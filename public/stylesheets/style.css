@@ -1,7 +1,5 @@
 @charset "utf-8";
-/* CSS Document by Dieter Schneider | CssTemplateHeaven.com */
 
-/* Reset Styles (Credits to Eric Meyer: http://meyerweb.com/eric/tools/css/reset/) */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -56,7 +54,7 @@ table {
 
 
 
-html {background: #f7f7f7; font-size: 100%}
+html {background: #E7E7E7; font-size: 100%; background-image: url('../images/bg.png');}
 
 /*------------------ Site Structure ------------------*/
 
@@ -91,7 +89,7 @@ body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times
 /* sidebar menu */
 
 
-.navcontainer { width: 280px; margin-bottom: 25px }
+.navcontainer { width: 280px; margin-bottom: 25px;}
 
 .navcontainer ul{
 	margin-left: 0;
@@ -103,7 +101,7 @@ body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times
 	display: block;
 	padding: 10px 10px;
 	width: 240px;
-	background: url(images/seperator.png) repeat-x bottom;
+	background: url(../images/seperator.png) repeat-x bottom;
 }
 
 .navcontainer a:link, .navlist a:visited {
@@ -124,7 +122,7 @@ body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times
 	line-height: 1.6em; 
 	margin-bottom: 44px;
 	outline:1px solid #dcdcdc;
-	background: #eaeaea
+	background: #EEEEEE
 }
 
 
@@ -134,7 +132,7 @@ body {width: 960px; margin: auto; font-family: Georgia, "Times New Roman", Times
 #box_middle {margin-left: 330px; margin-right: 330px; margin-bottom: 44px; text-align: justify}
 
 #box_left h3, #box_right h3, #box_middle h3 {
-	background: #eaeaea;
+	background: #EEEEEE;
 	font-weight: normal;
 	margin-bottom: 25px;
 	position: relative;
@@ -205,11 +203,11 @@ p {line-height: 1.4em; padding-bottom: 25px}
 	LEVEL ONE
 */
 
-ul.dropdown                         { position: relative; z-index:10; margin: auto; border-top: 1px solid #dbdbdb;
-	                                  border-bottom: 1px solid #dbdbdb; height:36px; background: #eaeaea; margin-bottom: 44px}
+ul.dropdown                         { position: relative; z-index:10; margin: auto;
+	                                  border: 1px solid #dbdbdb; height:36px; background: #EEEEEE; margin-bottom: 44px}
 									  
 ul.dropdown li                      { float: left; zoom: 1;  }
-ul.dropdown a:hover		            { color: ; }
+ul.dropdown a:hover		    { color: ; }
 ul.dropdown a:active                { color: ; }
 ul.dropdown li a                    { display: block; padding: 9px 20px;
 	 								  color: #222; }
@@ -222,7 +220,7 @@ ul.dropdown li.hover a              { color: #666; }
 /* 
 	LEVEL TWO
 */
-ul.dropdown ul 						{ width: 220px; visibility: hidden; position: absolute; top: 100%; left: 0; background: #eaeaea;
+ul.dropdown ul 						{ width: 220px; visibility: hidden; position: absolute; top: 100%; left: 0; background: #EEEEEE;
                                       border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb}
 ul.dropdown ul li 					{ font-weight: normal; background: url(images/dropdown.png);  color: #000; 
 									  border-bottom: 1px solid #dbdbdb; float: none; }
@@ -235,4 +233,9 @@ ul.dropdown ul li a					{ border-right: none; background: none; padding: 9px 8px
 */
 ul.dropdown ul ul 					{ left: 100%; top: 0; z-index:300; border-top: 1px solid #dbdbdb }
 ul.dropdown li:hover > ul 			{ visibility: visible; }
+
+
+/*
+    NEW EVENT FORM
+*/
 
