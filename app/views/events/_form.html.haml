@@ -1,59 +1,22 @@
-= form_for @event do |f|
-  -if @event.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
-      %ul
-        - @event.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for(@event) do |f|
+  = f.error_notification
 
-  %p
-    = f.label :name
-    = f.text_field :name
-
-  %p
-    = f.label :description
-    = f.text_area :description
-
-  %p
-    = f.label :city
-    = f.text_field :city
-
-  %p
-    = f.label :place
-    = f.text_field :place
-
-  %p
-    = f.label :type
-    = f.text_field :type
-
-  %p
-    = f.label :price
-    = f.text_field :price
-
-  %p
-    = f.label :website
-    = f.text_field :website
-
-  %p
-    = f.label :twitter
-    = f.text_field :twitter
-
-  %p
-    = f.label :hashtag
-    = f.text_field :hashtag
-
-  %p
-    = f.label :regurl
-    = f.text_field :regurl
-
-  %p
-    = f.label :speakers
-    = f.text_area :speakers
-
-  %p
-    = f.label :schedule
-    = f.text_area :schedule
-
+  .inputs
+    = f.input :name
+    = f.input :date
+    = f.input :description
+    = f.input :city
+    = f.input :place
+    = f.input :type
+    = f.input :price
+    = f.input :logo
+    = f.input :website
+    = f.input :twitter
+    = f.input :hashtag
+    = f.input :regurl
+    = f.input :speakers
+    = f.input :schedule
+    = f.input :slug
 
   .actions
-    = f.submit 'Save'
+    = f.button :submit

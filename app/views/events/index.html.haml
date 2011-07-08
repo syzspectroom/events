@@ -1,6 +1,47 @@
-- @events.each do |event|
-  %p
-    = link_to event.name, event
-    %span
-      = event.description
+%h1 Listing events
 
+%table
+  %tr
+    %th Name
+    %th Date
+    %th Description
+    %th City
+    %th Place
+    %th Type
+    %th Price
+    %th Logo
+    %th Website
+    %th Twitter
+    %th Hashtag
+    %th Regurl
+    %th Speakers
+    %th Schedule
+    %th Slug
+    %th
+    %th
+    %th
+
+  - @events.each do |event|
+    %tr
+      %td= event.name
+      %td= event.date
+      %td= event.description
+      %td= event.city
+      %td= event.place
+      %td= event.type
+      %td= event.price
+      %td= event.logo
+      %td= event.website
+      %td= event.twitter
+      %td= event.hashtag
+      %td= event.regurl
+      %td= event.speakers
+      %td= event.schedule
+      %td= event.slug
+      %td= link_to 'Show', event
+      %td= link_to 'Edit', edit_event_path(event)
+      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Event', new_event_path

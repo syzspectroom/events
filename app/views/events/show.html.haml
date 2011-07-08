@@ -1,6 +1,50 @@
 %p#notice= notice
-%div
+
+%p
+  %b Name:
   = @event.name
+%p
+  %b Date:
+  = @event.date
+%p
+  %b Description:
+  = @event.description
+%p
+  %b City:
+  = @event.city
+%p
+  %b Place:
+  = @event.place
+%p
+  %b Type:
+  = @event.type
+%p
+  %b Price:
+  = @event.price
+%p
+  %b Logo:
+  = @event.logo
+%p
+  %b Website:
+  = @event.website
+%p
+  %b Twitter:
+  = @event.twitter
+%p
+  %b Hashtag:
+  = @event.hashtag
+%p
+  %b Regurl:
+  = @event.regurl
+%p
+  %b Speakers:
+  = @event.speakers
+%p
+  %b Schedule:
+  = @event.schedule
+%p
+  %b Slug:
+  = @event.slug
 
 = link_to 'Edit', edit_event_path(@event)
 \|
