@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Podii::Application.load_tasks
+Events::Application.load_tasks

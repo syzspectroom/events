@@ -1,4 +1,4 @@
-h1. Podii
+h1. Events
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 

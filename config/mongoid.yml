@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: podii_development
+  database: events_development
 
 test:
   host: localhost
-  database: podii_test
+  database: events_test
 
 # set these environment variables on your prod server
 production:

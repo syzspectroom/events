@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-Podii::Application.config.session_store :cookie_store, key: '_podii_session'
+Events::Application.config.session_store :cookie_store, key: '_events_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# Podii::Application.config.session_store :active_record_store
+# Events::Application.config.session_store :active_record_store

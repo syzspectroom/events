@@ -11,7 +11,7 @@ require "active_resource/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module Podii
+module Events
   class Application < Rails::Application
 
     # don't generate RSpec tests for views and helpers
