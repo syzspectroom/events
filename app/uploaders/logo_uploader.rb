@@ -4,8 +4,8 @@ class LogoUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or ImageScience support:
   # include CarrierWave::RMagick
-  # include CarrierWave::ImageScience
-  include CarrierWave::MiniMagick
+    # include CarrierWave::ImageScience
+      include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :s3
@@ -15,12 +15,12 @@ class LogoUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/"
   end
-
+  
   process :resize_to_fit => [800, 800]
-
-  version :thumb do
-    process :resize_to_fill => [200,200]
-  end
+   
+    version :thumb do
+      process :resize_to_fill => [200,200]
+    end
 
 
   def extension_white_list
