@@ -8,7 +8,7 @@ gem "haml", ">= 3.1.2"
 
 gem 'simple_form'
 
-#gem "haml-rails", ">= 0.3.4", :group => :development
+gem "haml-rails", ">= 0.3.4", :group => :development
 gem "rspec-rails", ">= 2.6.1", :group => [:development, :test]
 gem "database_cleaner", ">= 0.6.7", :group => :test
 gem "mongoid-rspec", ">= 1.4.4", :group => :test
