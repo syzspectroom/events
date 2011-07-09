@@ -5,11 +5,13 @@
     = f.input :name
     = f.input :date
     = f.input :description
-    = f.input :city
+    = f.collection_select :city, City.all ,:name, :name, :prompt => 'Select city'
     = f.input :place
     = f.input :type
     = f.input :price
+    = image_tag(@event.logo_url(:thumb)) if @event.logo? 
     = f.input :logo
+    = f.input :logo_cache, :as => :hidden
     = f.input :website
     = f.input :twitter
     = f.input :hashtag

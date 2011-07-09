@@ -50,8 +50,8 @@ SimpleForm.setup do |config|
   # config.collection_value_methods = [ :id, :to_s ]
 
   # How the label text should be generated altogether with the required text.
-  # config.label_text = lambda { |label, required| "#{required} #{label}" }
-
+  config.label_text = lambda { |label, required| "#{label} #{required}" }
+  
   # You can define the class to use on all labels. Default is nil.
   # config.label_class = nil
 
@@ -86,7 +86,7 @@ SimpleForm.setup do |config|
   # config.country_priority = nil
 
   # Default size for text inputs.
-  # config.default_input_size = 50
+  config.default_input_size = 30
 
   # When false, do not use translations for labels, hints or placeholders.
   # config.translate = true

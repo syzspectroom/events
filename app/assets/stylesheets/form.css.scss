@@ -1,0 +1,32 @@
+$left-margin: 120px;
+$hint-color: #555;
+.simple_form {
+
+	label{  
+		display: block;
+		margin-left: 2px;
+	}  
+
+	div{
+		&.input{
+			margin-bottom: 10px;  
+			clear:both;
+		}
+		&.boolean {  
+			margin-left: $left-margin;  
+
+			label {  
+				float: none;  
+				margin: 0;
+			}
+		}	
+	}  
+
+	input[type = 'submit'] { @extend div.boolean}
+	
+	.hint{color:$hint-color;
+
+	  font-size:    12px;
+	  display: block;
+	  font-style: italic;}
+}

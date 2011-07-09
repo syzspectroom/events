@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -10,3 +12,7 @@ Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :name => 'First User', :email => 'user@test.com', :password => 'please', :password_confirmation => 'please'
 puts 'New user created: ' << user.name
+
+city = City.create! :name => 'Івано-Франківськ' , :region => 'Івано-Франківська'
+city2 = City.create! :name => 'Львів' , :region => 'Львівська'
+city3 = City.create! :name => 'Київ' , :region => 'Київська'

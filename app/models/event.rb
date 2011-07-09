@@ -20,6 +20,8 @@ class Event
 
   key :name
 
+  validates_presence_of :name
+
   attr_accessible :name, :date, :description, :author, :logo, :city, :place, :type, :price, :website, :twitter, :hashtag, :regurl, :speakers, :schedule
   referenced_in :user, :inverse_of => :author
 
