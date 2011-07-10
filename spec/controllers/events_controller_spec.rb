@@ -24,7 +24,12 @@ describe EventsController do
   # Event. As you add validations to Event, be sure to
   # update the return value of this method accordingly.
   before (:each) do
-     @valid_attributes = FactoryGirl.attributes_for(:event)
+    @valid_attributes = FactoryGirl.attributes_for(:event)
+  end
+
+  def authUser
+    @user = FactoryGirl.create(:user)
+    sign_in @user
   end
 
   describe "GET index" do
@@ -44,114 +49,170 @@ describe EventsController do
   end
 
   describe "GET new" do
-    it "assigns a new event as @event" do
-      get :new
-      assigns(:event).should be_a_new(Event)
+    describe "when unauthorized" do
+      it "shows login page" do
+        get :new
+        response.should redirect_to( '/users/sign_in')
+      end
+    end
+    describe "when authorized" do
+      it "assigns a new event as @event" do
+        authUser
+        get :new
+        assigns(:event).should be_a_new(Event)
+      end
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested event as @event" do
-      event = Event.create! @valid_attributes
-      get :edit, :id => event.id.to_s
-      assigns(:event).should eq(event)
+    describe "when unauthorized" do
+      it "shows login page" do
+        event = Event.create! @valid_attributes
+        get :edit, :id => event.id.to_s
+        response.should redirect_to('/users/sign_in')
+      end
+    end
+    describe "when authorized" do
+      it "assigns the requested event as @event" do
+        authUser
+        event = Event.create! @valid_attributes
+        get :edit, :id => event.id.to_s
+        assigns(:event).should eq(event)
+      end
     end
   end
 
   describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Event" do
-        expect {
-          post :create, :event => @valid_attributes
-        }.to change(Event, :count).by(1)
-      end
-
-      it "assigns a newly created event as @event" do
+    describe "when unauthorized" do
+      it "shows login page" do
         post :create, :event => @valid_attributes
-        assigns(:event).should be_a(Event)
-        assigns(:event).should be_persisted
+        response.should redirect_to('/users/sign_in')
       end
+    end
+    describe "when authorized" do
+      describe "with valid params" do
+        it "creates a new Event" do
+          authUser
+          expect {
+            post :create, :event => @valid_attributes
+            }.to change(Event, :count).by(1)
+          end
 
-      it "redirects to the created event" do
-        post :create, :event => @valid_attributes
-        response.should redirect_to(Event.last)
+          it "assigns a newly created event as @event" do
+            authUser
+            post :create, :event => @valid_attributes
+            assigns(:event).should be_a(Event)
+            assigns(:event).should be_persisted
+          end
+
+          it "redirects to the created event" do
+            authUser
+            post :create, :event => @valid_attributes
+            response.should redirect_to(Event.last)
+          end
+        end
+
+        describe "with invalid params" do
+          it "assigns a newly created but unsaved event as @event" do
+            authUser
+            # Trigger the behavior that occurs when invalid params are submitted
+            Event.any_instance.stub(:save).and_return(false)
+            post :create, :event => {}
+            assigns(:event).should be_a_new(Event)
+          end
+          it "re-renders the 'new' template" do
+            authUser
+            # Trigger the behavior that occurs when invalid params are submitted
+            Event.any_instance.stub(:save).and_return(false)
+            post :create, :event => {}
+            response.should render_template("new")
+          end
+        end
       end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved event as @event" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
-        post :create, :event => {}
-        assigns(:event).should be_a_new(Event)
+    describe "PUT update" do
+      describe "when unauthorized" do
+        it "shows login page" do
+          event = Event.create! @valid_attributes
+          put :update, :id => event.id, :event => @valid_attributes
+          response.should redirect_to('/users/sign_in')
+        end
       end
+      describe "when authorized" do
+        describe "with valid params" do
+          it "updates the requested event" do
+            authUser
+            event = Event.create! @valid_attributes
+            # Assuming there are no other events in the database, this
+            # specifies that the Event created on the previous line
+            # receives the :update_attributes message with whatever params are
+            # submitted in the request.
+            Event.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+            put :update, :id => event.id, :event => {'these' => 'params'}
+          end
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
-        post :create, :event => {}
-        response.should render_template("new")
-      end
-    end
-  end
+          it "assigns the requested event as @event" do
+            authUser
+            event = Event.create! @valid_attributes
+            put :update, :id => event.id, :event => @valid_attributes
+            assigns(:event).should eq(event)
+          end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested event" do
-        event = Event.create! @valid_attributes
-        # Assuming there are no other events in the database, this
-        # specifies that the Event created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Event.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => event.id, :event => {'these' => 'params'}
-      end
+          it "redirects to the event" do
+            authUser
+            event = Event.create! @valid_attributes
+            put :update, :id => event.id, :event => @valid_attributes
+            response.should redirect_to(event)
+          end
+        end
 
-      it "assigns the requested event as @event" do
-        event = Event.create! @valid_attributes
-        put :update, :id => event.id, :event => @valid_attributes
-        assigns(:event).should eq(event)
-      end
+        describe "with invalid params" do
+          it "assigns the event as @event" do
+            authUser
+            event = Event.create! @valid_attributes
+            # Trigger the behavior that occurs when invalid params are submitted
+            Event.any_instance.stub(:save).and_return(false)
+            put :update, :id => event.id.to_s, :event => {}
+            assigns(:event).should eq(event)
+          end
 
-      it "redirects to the event" do
-        event = Event.create! @valid_attributes
-        put :update, :id => event.id, :event => @valid_attributes
-        response.should redirect_to(event)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the event as @event" do
-        event = Event.create! @valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
-        put :update, :id => event.id.to_s, :event => {}
-        assigns(:event).should eq(event)
-      end
-
-      it "re-renders the 'edit' template" do
-        event = Event.create! @valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Event.any_instance.stub(:save).and_return(false)
-        put :update, :id => event.id.to_s, :event => {}
-        response.should render_template("edit")
+          it "re-renders the 'edit' template" do
+            authUser
+            event = Event.create! @valid_attributes
+            # Trigger the behavior that occurs when invalid params are submitted
+            Event.any_instance.stub(:save).and_return(false)
+            put :update, :id => event.id.to_s, :event => {}
+            response.should render_template("edit")
+          end
+        end
       end
     end
-  end
 
-  describe "DELETE destroy" do
-    it "destroys the requested event" do
-      event = Event.create! @valid_attributes
-      expect {
-        delete :destroy, :id => event.id.to_s
-      }.to change(Event, :count).by(-1)
+    describe "DELETE destroy" do
+      describe "when unauthorized" do
+        it "shows login page" do
+          event = Event.create! @valid_attributes
+          delete :destroy, :id => event.id.to_s
+          response.should redirect_to('/users/sign_in')
+        end
+      end
+
+      describe "when unauthorized" do
+        it "destroys the requested event" do
+          authUser
+          event = Event.create! @valid_attributes
+          expect {
+            delete :destroy, :id => event.id.to_s
+            }.to change(Event, :count).by(-1)
+          end
+
+          it "redirects to the events list" do
+            authUser
+            event = Event.create! @valid_attributes
+            delete :destroy, :id => event.id.to_s
+            response.should redirect_to(events_url)
+          end
+        end
+      end
     end
-
-    it "redirects to the events list" do
-      event = Event.create! @valid_attributes
-      delete :destroy, :id => event.id.to_s
-      response.should redirect_to(events_url)
-    end
-  end
-
-end
